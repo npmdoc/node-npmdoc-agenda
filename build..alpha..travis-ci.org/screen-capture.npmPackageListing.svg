@@ -1,0 +1,8 @@
+<svg height="78" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="78" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">warning: empty strings as pathspecs will be made invalid in upcoming releases. please use . inst\</tspan>
+<tspan x="10" y="42">ead if you meant to match all paths</tspan>
+<tspan x="10" y="58">  1.  2017-03-25 06:58:52 +0000        0 byte  .</tspan>
+</text>
+</svg>
