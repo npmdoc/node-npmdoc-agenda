@@ -9,7 +9,7 @@
 
 [![apidoc](https://npmdoc.github.io/node-npmdoc-agenda/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-agenda_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-agenda/build..beta..travis-ci.org/apidoc.html)
 
-# package-listing
+# package listing
 
 ![package-listing](https://npmdoc.github.io/node-npmdoc-agenda/build/screen-capture.npmPackageListing.svg)
 
