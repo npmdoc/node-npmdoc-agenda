@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/rschmukler/agenda#readme"
-
-    >agenda (v0.9.1)</a>
+    <a href="https://github.com/rschmukler/agenda#readme">agenda (v0.9.1)</a>
 </h1>
 <h4>Light weight job scheduler for Node.js</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.agenda">module agenda</a><ol>
 
@@ -272,7 +265,7 @@
 
   // Set defaults if undefined
   attrs.nextRunAt = attrs.nextRunAt || new Date();
-  attrs.type = attrs.type || &#x27;once&#x27;;
+  attrs.type = attrs.type || 'once';
   this.attrs = attrs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -329,7 +322,7 @@
 
   // Set defaults if undefined
   attrs.nextRunAt = attrs.nextRunAt || new Date();
-  attrs.type = attrs.type || &#x27;once&#x27;;
+  attrs.type = attrs.type || 'once';
   this.attrs = attrs;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -382,7 +375,7 @@
     } catch (e) {
       // Nope, humanInterval then!
       try {
-        if (!this.attrs.lastRunAt &#x26;&#x26; humanInterval(interval)) {
+        if (!this.attrs.lastRunAt &amp;&amp; humanInterval(interval)) {
           this.attrs.nextRunAt = lastRun.valueOf();
         } else {
           this.attrs.nextRunAt = lastRun.valueOf() + humanInterval(interval);
@@ -391,7 +384,7 @@
     } finally {
       if (isNaN(this.attrs.nextRunAt)) {
         this.attrs.nextRunAt = undefined;
-        this.fail(&#x27;failed to calculate nextRunAt due to invalid repeat interval&#x27;);
+        this.fail('failed to calculate nextRunAt due to invalid repeat interval');
       }
     }
   }
@@ -403,9 +396,9 @@
     var offset = Date.now();  // if you do not specify offset date for below test it will fail for ms
     if (offset === date(repeatAt,offset).valueOf()) {
       this.attrs.nextRunAt = undefined;
-      this.fail(&#x27;failed to calculate repeatAt time due to invalid format&#x27;);
+      this.fail('failed to calculate repeatAt time due to invalid format');
     } else if (nextDate.valueOf() == lastRun.valueOf()) {
-      this.attrs.nextRunAt = date(&#x27;tomorrow at &#x27;, repeatAt);
+      this.attrs.nextRunAt = date('tomorrow at ', repeatAt);
     } else {
       this.attrs.nextRunAt = date(repeatAt);
     }
@@ -488,9 +481,9 @@ Optionally, `reason` can be an error, in which case `job.attrs.failReason` will
 be set to `error.message`
 
 ```js
-job.<span class="apidocCodeKeywordSpan">fail</span>(&#x27;insuficient disk space&#x27;);
+job.<span class="apidocCodeKeywordSpan">fail</span>('insuficient disk space');
 // or
-job.fail(new Error(&#x27;insufficient disk space&#x27;));
+job.fail(new Error('insufficient disk space'));
 job.save();
 ```
 
@@ -510,7 +503,7 @@ job.save();
     <li>description and source-code<pre class="apidocCodePre">isRunning = function () {
   if (!this.attrs.lastRunAt) return false;
   if (!this.attrs.lastFinishedAt) return true;
-  if (this.attrs.lockedAt &#x26;&#x26; this.attrs.lastRunAt.getTime() &#x3e; this.attrs.lastFinishedAt.getTime()) {
+  if (this.attrs.lockedAt &amp;&amp; this.attrs.lastRunAt.getTime() &gt; this.attrs.lastFinishedAt.getTime()) {
     return true;
   }
   return false;
@@ -539,7 +532,7 @@ Specifies the `priority` weighting of the job. Can be a number or a string from
 the above priority table.
 
 ```js
-job.<span class="apidocCodeKeywordSpan">priority</span>(&#x27;low&#x27;);
+job.<span class="apidocCodeKeywordSpan">priority</span>('low');
 job.save();
 ```
 
@@ -573,21 +566,21 @@ Ensure that only one instance of this job exists with the specified properties
 </span>}</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // or pass additional connection options:
-// var agenda = new Agenda({db: {address: mongoConnectionString, collection: &#x22;jobCollectionName&#x22;, options: {server:{auto_reconnect
+// var agenda = new Agenda({db: {address: mongoConnectionString, collection: "jobCollectionName", options: {server:{auto_reconnect
 :true}}}});
 
 // or pass in an existing mongodb-native MongoClient instance
 // var agenda = new Agenda({mongo: myMongoClient});
 
-agenda.define(&#x27;delete old users&#x27;, function(job, done) {
+agenda.define('delete old users', function(job, done) {
 User.<span class="apidocCodeKeywordSpan">remove</span>({lastLogIn: { $lt: twoDaysAgo }}, done);
 });
 
-agenda.on(&#x27;ready&#x27;, function() {
-agenda.every(&#x27;3 minutes&#x27;, &#x27;delete old users&#x27;);
+agenda.on('ready', function() {
+agenda.every('3 minutes', 'delete old users');
 
 // Alternatively, you could also do:
-agenda.every(&#x27;*/3 * * * *&#x27;, &#x27;delete old users&#x27;);
+agenda.every('*/3 * * * *', 'delete old users');
 ...</pre></li>
     </ul>
 
@@ -612,7 +605,7 @@ agenda.every(&#x27;*/3 * * * *&#x27;, &#x27;delete old users&#x27;);
 Specifies a `time` when the job should repeat. [Possible values](https://github.com/matthewmueller/date#examples)
 
 ```js
-job.<span class="apidocCodeKeywordSpan">repeatAt</span>(&#x27;3:30pm&#x27;);
+job.<span class="apidocCodeKeywordSpan">repeatAt</span>('3:30pm');
 job.save();
 ```
 
@@ -643,16 +636,16 @@ Specifies the next `time` at which the job should run.
 ```
 
 ```js
-agenda.on(&#x27;ready&#x27;, function() {
-  var weeklyReport = agenda.create(&#x27;send email report&#x27;, {to: &#x27;another-guy@example.com&#x27;})
-  weeklyReport.<span class="apidocCodeKeywordSpan">repeatEvery</span>(&#x27;1 week&#x27;).save();
+agenda.on('ready', function() {
+  var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
+  weeklyReport.<span class="apidocCodeKeywordSpan">repeatEvery</span>('1 week').save();
   agenda.start();
 });
 ```
 
 # Full documentation
 
-Agenda&#x27;s basic control structure is an instance of an agenda. Agenda&#x27;s are
+Agenda's basic control structure is an instance of an agenda. Agenda's are
 ...</pre></li>
     </ul>
 
@@ -683,24 +676,24 @@ Agenda&#x27;s basic control structure is an instance of an agenda. Agenda&#x27;s
         self.attrs.lastFinishedAt = new Date();
         self.attrs.lockedAt = null;
         self.save(function(saveErr, job) {
-          cb &#x26;&#x26; cb(err || saveErr, job);
+          cb &amp;&amp; cb(err || saveErr, job);
           if (err) {
-            agenda.emit(&#x27;fail&#x27;, err, self);
-            agenda.emit(&#x27;fail:&#x27; + self.attrs.name, err, self);
+            agenda.emit('fail', err, self);
+            agenda.emit('fail:' + self.attrs.name, err, self);
           } else {
-            agenda.emit(&#x27;success&#x27;, self);
-            agenda.emit(&#x27;success:&#x27; + self.attrs.name, self);
+            agenda.emit('success', self);
+            agenda.emit('success:' + self.attrs.name, self);
           }
-          agenda.emit(&#x27;complete&#x27;, self);
-          agenda.emit(&#x27;complete:&#x27; + self.attrs.name, self);
+          agenda.emit('complete', self);
+          agenda.emit('complete:' + self.attrs.name, self);
         });
       };
 
       try {
-        agenda.emit(&#x27;start&#x27;, self);
-        agenda.emit(&#x27;start:&#x27; + self.attrs.name, self);
+        agenda.emit('start', self);
+        agenda.emit('start:' + self.attrs.name, self);
         if (!definition) {
-          throw new Error(&#x27;Undefined job&#x27;);
+          throw new Error('Undefined job');
         }
         if (definition.fn.length === 2) {
           definition.fn(self, jobCallback);
@@ -723,7 +716,7 @@ you never need to call this manually.
 
 ```js
 job.<span class="apidocCodeKeywordSpan">run</span>(function(err, job) {
-  console.log(&#x22;I don&#x27;t know why you would need to do this...&#x22;);
+  console.log("I don't know why you would need to do this...");
 });
 ```
 
@@ -752,16 +745,16 @@ Saves the `job.attrs` into the database.
 ```
 
 ```js
-agenda.on(&#x27;ready&#x27;, function() {
-  var weeklyReport = agenda.create(&#x27;send email report&#x27;, {to: &#x27;another-guy@example.com&#x27;})
-  weeklyReport.repeatEvery(&#x27;1 week&#x27;).<span class="apidocCodeKeywordSpan">save</span>();
+agenda.on('ready', function() {
+  var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
+  weeklyReport.repeatEvery('1 week').<span class="apidocCodeKeywordSpan">save</span>();
   agenda.start();
 });
 ```
 
 # Full documentation
 
-Agenda&#x27;s basic control structure is an instance of an agenda. Agenda&#x27;s are
+Agenda's basic control structure is an instance of an agenda. Agenda's are
 ...</pre></li>
     </ul>
 
@@ -780,22 +773,22 @@ Agenda&#x27;s basic control structure is an instance of an agenda. Agenda&#x27;s
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  from: &#x27;example@example.com&#x27;,
-  subject: &#x27;Email Report&#x27;,
-  body: &#x27;...&#x27;
+  from: 'example@example.com',
+  subject: 'Email Report',
+  body: '...'
 }, done);
 });
 
-agenda.on(&#x27;ready&#x27;, function() {
-agenda.<span class="apidocCodeKeywordSpan">schedule</span>(&#x27;in 20 minutes&#x27;, &#x27;send email report&#x27;, {to: &#x27;
-admin@example.com&#x27;});
+agenda.on('ready', function() {
+agenda.<span class="apidocCodeKeywordSpan">schedule</span>('in 20 minutes', 'send email report', {to: '
+admin@example.com'});
 agenda.start();
 });
 ```
 
 ```js
-agenda.on(&#x27;ready&#x27;, function() {
-var weeklyReport = agenda.create(&#x27;send email report&#x27;, {to: &#x27;another-guy@example.com&#x27;})
+agenda.on('ready', function() {
+var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
 ...</pre></li>
     </ul>
 
@@ -820,7 +813,7 @@ var weeklyReport = agenda.create(&#x27;send email report&#x27;, {to: &#x27;anoth
       }
     }
 
-    var dates = [&#x27;lastRunAt&#x27;, &#x27;lastFinishedAt&#x27;, &#x27;nextRunAt&#x27;, &#x27;failedAt&#x27;, &#x27;lockedAt&#x27;];
+    var dates = ['lastRunAt', 'lastFinishedAt', 'nextRunAt', 'failedAt', 'lockedAt'];
     dates.forEach(function(d) {
       if (result[d]) {
         result[d] = new Date(result[d]);
@@ -847,11 +840,11 @@ var weeklyReport = agenda.create(&#x27;send email report&#x27;, {to: &#x27;anoth
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-Resets the lock on the job. Useful to indicate that the job hasn&#x27;t timed out
+Resets the lock on the job. Useful to indicate that the job hasn't timed out
 when you have very long running jobs.
 
 ```js
-agenda.define(&#x27;super long job&#x27;, function(job, done) {
+agenda.define('super long job', function(job, done) {
 doSomeLongTask(function() {
   job.<span class="apidocCodeKeywordSpan">touch</span>(function() {
     doAnotherLongTask(function() {
@@ -886,8 +879,8 @@ the following:
 - `insertOnly`: `boolean` will prevent any properties from persisting if job already exists. Defaults to false.
 
 ```js
-job.<span class="apidocCodeKeywordSpan">unique</span>({&#x27;data.type&#x27;: &#x27;active&#x27;, &#x27;data.userId&#x27;: &#x27
-;123&#x27;, nextRunAt(date)});
+job.<span class="apidocCodeKeywordSpan">unique</span>({'data.type': 'active', 'data.userId': '
+;123', nextRunAt(date)});
 job.save();
 ```
 
@@ -907,3 +900,4 @@ to `reason`.
     ]
 </div>
 </div>
+</body></html>
