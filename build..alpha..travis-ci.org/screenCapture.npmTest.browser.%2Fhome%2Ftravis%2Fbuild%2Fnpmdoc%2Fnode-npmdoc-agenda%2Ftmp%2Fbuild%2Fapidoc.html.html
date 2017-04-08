@@ -1,0 +1,903 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/rschmukler/agenda#readme">agenda (v0.9.1)</a>
+</h1>
+<h4>Light weight job scheduler for Node.js</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.agenda">module agenda</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job">
+            function <span class="apidocSignatureSpan">agenda.</span>job
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.super_">
+            function <span class="apidocSignatureSpan">agenda.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">agenda.</span>job.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.agenda.job">module agenda.job</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.job">
+            function <span class="apidocSignatureSpan">agenda.</span>job
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.agenda.job.prototype">module agenda.job.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.computeNextRunAt">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>computeNextRunAt
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.disable">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>disable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.enable">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>enable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.fail">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>fail
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.isRunning">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>isRunning
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.priority">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>priority
+            <span class="apidocSignatureSpan">(priority)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.remove">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>remove
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.repeatAt">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>repeatAt
+            <span class="apidocSignatureSpan">(time)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.repeatEvery">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>repeatEvery
+            <span class="apidocSignatureSpan">(interval, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.run">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>run
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.save">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>save
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.schedule">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>schedule
+            <span class="apidocSignatureSpan">(time)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.toJSON">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.touch">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>touch
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.agenda.job.prototype.unique">
+            function <span class="apidocSignatureSpan">agenda.job.prototype.</span>unique
+            <span class="apidocSignatureSpan">(unique, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.agenda" id="apidoc.module.agenda">module agenda</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job" id="apidoc.element.agenda.job">
+        function <span class="apidocSignatureSpan">agenda.</span>job
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Job(args) {
+  args = args || {};
+
+  // Remove special args
+  this.agenda = args.agenda;
+  delete args.agenda;
+
+  // Process args
+  args.priority = parsePriority(args.priority) || 0;
+
+  // Set attrs to args
+  var attrs = {};
+  for (var key in args) {
+    if (args.hasOwnProperty(key)) {
+      attrs[key] = args[key];
+    }
+  }
+
+  // Set defaults if undefined
+  attrs.nextRunAt = attrs.nextRunAt || new Date();
+  attrs.type = attrs.type || 'once';
+  this.attrs = attrs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.super_" id="apidoc.element.agenda.super_">
+        function <span class="apidocSignatureSpan">agenda.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.agenda.job" id="apidoc.module.agenda.job">module agenda.job</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.job" id="apidoc.element.agenda.job.job">
+        function <span class="apidocSignatureSpan">agenda.</span>job
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Job(args) {
+  args = args || {};
+
+  // Remove special args
+  this.agenda = args.agenda;
+  delete args.agenda;
+
+  // Process args
+  args.priority = parsePriority(args.priority) || 0;
+
+  // Set attrs to args
+  var attrs = {};
+  for (var key in args) {
+    if (args.hasOwnProperty(key)) {
+      attrs[key] = args[key];
+    }
+  }
+
+  // Set defaults if undefined
+  attrs.nextRunAt = attrs.nextRunAt || new Date();
+  attrs.type = attrs.type || 'once';
+  this.attrs = attrs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.agenda.job.prototype" id="apidoc.module.agenda.job.prototype">module agenda.job.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.computeNextRunAt" id="apidoc.element.agenda.job.prototype.computeNextRunAt">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>computeNextRunAt
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">computeNextRunAt = function () {
+  var interval = this.attrs.repeatInterval;
+  var timezone = this.attrs.repeatTimezone;
+  var repeatAt = this.attrs.repeatAt;
+  this.attrs.nextRunAt = undefined;
+
+  if (interval) {
+    computeFromInterval.call(this);
+  } else if (repeatAt) {
+    computeFromRepeatAt.call(this);
+  }
+  return this;
+
+  function dateForTimezone (d) {
+    d = moment(d);
+    if(timezone) d.tz(timezone);
+    return d;
+  }
+
+  function computeFromInterval() {
+    var lastRun = this.attrs.lastRunAt || new Date();
+    lastRun = dateForTimezone(lastRun);
+    try {
+      var cronTime = new CronTime(interval);
+      var nextDate = cronTime._getNextDateFrom(lastRun);
+      if (nextDate.valueOf() == lastRun.valueOf()) {
+        // Handle cronTime giving back the same date for the next run time
+        nextDate = cronTime._getNextDateFrom(dateForTimezone(new Date(lastRun.valueOf() + 1000)));
+      }
+      this.attrs.nextRunAt = nextDate;
+    } catch (e) {
+      // Nope, humanInterval then!
+      try {
+        if (!this.attrs.lastRunAt &amp;&amp; humanInterval(interval)) {
+          this.attrs.nextRunAt = lastRun.valueOf();
+        } else {
+          this.attrs.nextRunAt = lastRun.valueOf() + humanInterval(interval);
+        }
+      } catch (e) {}
+    } finally {
+      if (isNaN(this.attrs.nextRunAt)) {
+        this.attrs.nextRunAt = undefined;
+        this.fail('failed to calculate nextRunAt due to invalid repeat interval');
+      }
+    }
+  }
+
+  function computeFromRepeatAt() {
+    var lastRun = this.attrs.lastRunAt || new Date();
+    var nextDate = date(repeatAt).valueOf();
+
+    var offset = Date.now();  // if you do not specify offset date for below test it will fail for ms
+    if (offset === date(repeatAt,offset).valueOf()) {
+      this.attrs.nextRunAt = undefined;
+      this.fail('failed to calculate repeatAt time due to invalid format');
+    } else if (nextDate.valueOf() == lastRun.valueOf()) {
+      this.attrs.nextRunAt = date('tomorrow at ', repeatAt);
+    } else {
+      this.attrs.nextRunAt = date(repeatAt);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this,
+      agenda = self.agenda,
+      definition = agenda._definitions[self.attrs.name];
+
+  var setImmediate = setImmediate || process.nextTick;
+  setImmediate(function() {
+    self.attrs.lastRunAt = new Date();
+    self.<span class="apidocCodeKeywordSpan">computeNextRunAt</span>();
+    self.save(function() {
+      var jobCallback = function(err) {
+if (err) {
+  self.fail(err);
+}
+
+self.attrs.lastFinishedAt = new Date();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.disable" id="apidoc.element.agenda.job.prototype.disable">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>disable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">disable = function () {
+  this.attrs.disabled = true;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.enable" id="apidoc.element.agenda.job.prototype.enable">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>enable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">enable = function () {
+  this.attrs.disabled = false;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.fail" id="apidoc.element.agenda.job.prototype.fail">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>fail
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fail = function (reason) {
+  if(reason instanceof Error) {
+    reason = reason.message;
+  }
+  this.attrs.failReason = reason;
+  this.attrs.failCount = (this.attrs.failCount || 0) + 1;
+  this.attrs.failedAt = new Date();
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sets `job.attrs.failedAt` to `now`, and sets `job.attrs.failReason`
+to `reason`.
+
+Optionally, `reason` can be an error, in which case `job.attrs.failReason` will
+be set to `error.message`
+
+```js
+job.<span class="apidocCodeKeywordSpan">fail</span>('insuficient disk space');
+// or
+job.fail(new Error('insufficient disk space'));
+job.save();
+```
+
+### run(callback)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.isRunning" id="apidoc.element.agenda.job.prototype.isRunning">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>isRunning
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isRunning = function () {
+  if (!this.attrs.lastRunAt) return false;
+  if (!this.attrs.lastFinishedAt) return true;
+  if (this.attrs.lockedAt &amp;&amp; this.attrs.lastRunAt.getTime() &gt; this.attrs.lastFinishedAt.getTime()) {
+    return true;
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.priority" id="apidoc.element.agenda.job.prototype.priority">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>priority
+        <span class="apidocSignatureSpan">(priority)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">priority = function (priority) {
+  this.attrs.priority = parsePriority(priority);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### priority(priority)
+
+Specifies the `priority` weighting of the job. Can be a number or a string from
+the above priority table.
+
+```js
+job.<span class="apidocCodeKeywordSpan">priority</span>('low');
+job.save();
+```
+
+### unique(properties, [options])
+
+Ensure that only one instance of this job exists with the specified properties
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.remove" id="apidoc.element.agenda.job.prototype.remove">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>remove
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (cb) {
+  // refactored NF 21/04/2015
+  this.agenda.cancel( {_id: this.attrs._id}, cb );
+<span class="apidocCodeCommentSpan">/*
+  var self = this;
+  this.agenda._db.remove({_id: this.attrs._id}, function(err, count) {
+    if(err) {
+      return cb(err);
+    }
+    cb(err, count);
+  });
+*/
+</span>}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// or pass additional connection options:
+// var agenda = new Agenda({db: {address: mongoConnectionString, collection: "jobCollectionName", options: {server:{auto_reconnect
+:true}}}});
+
+// or pass in an existing mongodb-native MongoClient instance
+// var agenda = new Agenda({mongo: myMongoClient});
+
+agenda.define('delete old users', function(job, done) {
+User.<span class="apidocCodeKeywordSpan">remove</span>({lastLogIn: { $lt: twoDaysAgo }}, done);
+});
+
+agenda.on('ready', function() {
+agenda.every('3 minutes', 'delete old users');
+
+// Alternatively, you could also do:
+agenda.every('*/3 * * * *', 'delete old users');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.repeatAt" id="apidoc.element.agenda.job.prototype.repeatAt">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>repeatAt
+        <span class="apidocSignatureSpan">(time)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repeatAt = function (time) {
+  this.attrs.repeatAt = time;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### repeatAt(time)
+
+Specifies a `time` when the job should repeat. [Possible values](https://github.com/matthewmueller/date#examples)
+
+```js
+job.<span class="apidocCodeKeywordSpan">repeatAt</span>('3:30pm');
+job.save();
+```
+
+### schedule(time)
+
+Specifies the next `time` at which the job should run.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.repeatEvery" id="apidoc.element.agenda.job.prototype.repeatEvery">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>repeatEvery
+        <span class="apidocSignatureSpan">(interval, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repeatEvery = function (interval, options) {
+  options = options || {};
+  this.attrs.repeatInterval = interval;
+  this.attrs.repeatTimezone = options.timezone ? options.timezone : null;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  agenda.start();
+});
+```
+
+```js
+agenda.on('ready', function() {
+  var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
+  weeklyReport.<span class="apidocCodeKeywordSpan">repeatEvery</span>('1 week').save();
+  agenda.start();
+});
+```
+
+# Full documentation
+
+Agenda's basic control structure is an instance of an agenda. Agenda's are
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.run" id="apidoc.element.agenda.job.prototype.run">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>run
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (cb) {
+  var self = this,
+      agenda = self.agenda,
+      definition = agenda._definitions[self.attrs.name];
+
+  var setImmediate = setImmediate || process.nextTick;
+  setImmediate(function() {
+    self.attrs.lastRunAt = new Date();
+    self.computeNextRunAt();
+    self.save(function() {
+      var jobCallback = function(err) {
+        if (err) {
+          self.fail(err);
+        }
+
+        self.attrs.lastFinishedAt = new Date();
+        self.attrs.lockedAt = null;
+        self.save(function(saveErr, job) {
+          cb &amp;&amp; cb(err || saveErr, job);
+          if (err) {
+            agenda.emit('fail', err, self);
+            agenda.emit('fail:' + self.attrs.name, err, self);
+          } else {
+            agenda.emit('success', self);
+            agenda.emit('success:' + self.attrs.name, self);
+          }
+          agenda.emit('complete', self);
+          agenda.emit('complete:' + self.attrs.name, self);
+        });
+      };
+
+      try {
+        agenda.emit('start', self);
+        agenda.emit('start:' + self.attrs.name, self);
+        if (!definition) {
+          throw new Error('Undefined job');
+        }
+        if (definition.fn.length === 2) {
+          definition.fn(self, jobCallback);
+        } else {
+          definition.fn(self);
+          jobCallback();
+        }
+      } catch (e) {
+        jobCallback(e);
+      }
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### run(callback)
+
+Runs the given `job` and calls `callback(err, job)` upon completion. Normally
+you never need to call this manually.
+
+```js
+job.<span class="apidocCodeKeywordSpan">run</span>(function(err, job) {
+  console.log("I don't know why you would need to do this...");
+});
+```
+
+### save(callback)
+
+Saves the `job.attrs` into the database.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.save" id="apidoc.element.agenda.job.prototype.save">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>save
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function (cb) {
+  this.agenda.saveJob(this, cb);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  agenda.start();
+});
+```
+
+```js
+agenda.on('ready', function() {
+  var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
+  weeklyReport.repeatEvery('1 week').<span class="apidocCodeKeywordSpan">save</span>();
+  agenda.start();
+});
+```
+
+# Full documentation
+
+Agenda's basic control structure is an instance of an agenda. Agenda's are
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.schedule" id="apidoc.element.agenda.job.prototype.schedule">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>schedule
+        <span class="apidocSignatureSpan">(time)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">schedule = function (time) {
+  this._scheduled = true;
+  this.attrs.nextRunAt = (time instanceof Date) ? time : date(time);
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  from: 'example@example.com',
+  subject: 'Email Report',
+  body: '...'
+}, done);
+});
+
+agenda.on('ready', function() {
+agenda.<span class="apidocCodeKeywordSpan">schedule</span>('in 20 minutes', 'send email report', {to: '
+admin@example.com'});
+agenda.start();
+});
+```
+
+```js
+agenda.on('ready', function() {
+var weeklyReport = agenda.create('send email report', {to: 'another-guy@example.com'})
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.toJSON" id="apidoc.element.agenda.job.prototype.toJSON">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function () { // create a persistable Mongo object -RR
+    var self = this,
+        attrs = self.attrs || {};
+
+    var result = {};
+
+    for (var prop in attrs) {
+      if (attrs.hasOwnProperty(prop)) {
+        result[prop] = attrs[prop];
+      }
+    }
+
+    var dates = ['lastRunAt', 'lastFinishedAt', 'nextRunAt', 'failedAt', 'lockedAt'];
+    dates.forEach(function(d) {
+      if (result[d]) {
+        result[d] = new Date(result[d]);
+      }
+    });
+
+    return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.touch" id="apidoc.element.agenda.job.prototype.touch">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>touch
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">touch = function (cb) {
+  this.attrs.lockedAt = new Date();
+  this.save(cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Resets the lock on the job. Useful to indicate that the job hasn't timed out
+when you have very long running jobs.
+
+```js
+agenda.define('super long job', function(job, done) {
+doSomeLongTask(function() {
+  job.<span class="apidocCodeKeywordSpan">touch</span>(function() {
+    doAnotherLongTask(function() {
+      job.touch(function() {
+        finishOurLongTasks(done);
+      });
+    });
+  });
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.agenda.job.prototype.unique" id="apidoc.element.agenda.job.prototype.unique">
+        function <span class="apidocSignatureSpan">agenda.job.prototype.</span>unique
+        <span class="apidocSignatureSpan">(unique, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unique = function (unique, opts) {
+  this.attrs.unique = unique;
+  this.attrs.uniqueOpts = opts;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+`options` is an optional argument which can overwrite the defaults. It can take
+the following:
+
+- `insertOnly`: `boolean` will prevent any properties from persisting if job already exists. Defaults to false.
+
+```js
+job.<span class="apidocCodeKeywordSpan">unique</span>({'data.type': 'active', 'data.userId': '
+;123', nextRunAt(date)});
+job.save();
+```
+
+### fail(reason)
+
+Sets `job.attrs.failedAt` to `now`, and sets `job.attrs.failReason`
+to `reason`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
