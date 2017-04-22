@@ -18,20 +18,20 @@
 <tspan x="10" y="250">  ├── human-interval@0.1.6 </tspan>
 <tspan x="10" y="266">  ├─┬ moment-timezone@0.5.13 </tspan>
 <tspan x="10" y="282">  │ └── moment@2.18.1 </tspan>
-<tspan x="10" y="298">  └─┬ mongodb@2.2.25 </tspan>
+<tspan x="10" y="298">  └─┬ mongodb@2.2.26 </tspan>
 <tspan x="10" y="314">    ├── es6-promise@3.2.1 </tspan>
-<tspan x="10" y="330">    ├─┬ mongodb-core@2.1.9 </tspan>
+<tspan x="10" y="330">    ├─┬ mongodb-core@2.1.10 </tspan>
 <tspan x="10" y="346">    │ ├── bson@1.0.4 </tspan>
 <tspan x="10" y="362">    │ └─┬ require_optional@1.0.0 </tspan>
 <tspan x="10" y="378">    │   ├── resolve-from@2.0.0 </tspan>
 <tspan x="10" y="394">    │   └── semver@5.3.0 </tspan>
-<tspan x="10" y="410">    └─┬ readable-stream@2.1.5 </tspan>
+<tspan x="10" y="410">    └─┬ readable-stream@2.2.7 </tspan>
 <tspan x="10" y="426">      ├── buffer-shims@1.0.0 </tspan>
 <tspan x="10" y="442">      ├── core-util-is@1.0.2 </tspan>
 <tspan x="10" y="458">      ├── inherits@2.0.3 </tspan>
 <tspan x="10" y="474">      ├── isarray@1.0.0 </tspan>
 <tspan x="10" y="490">      ├── process-nextick-args@1.0.7 </tspan>
-<tspan x="10" y="506">      ├── string_decoder@0.10.31 </tspan>
+<tspan x="10" y="506">      ├── string_decoder@1.0.0 </tspan>
 <tspan x="10" y="522">      └── util-deprecate@1.0.2</tspan>
 </text>
 </svg>
